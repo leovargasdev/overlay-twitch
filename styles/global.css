@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../fonts/BebasNeue-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --primary: #fffffe;
+  --secondary: #7F5AF0;
+
+  --background: #1A1A2E;
+}
+
+body {
+  color: var(--primary);
+  background: var(--background);
+  font: 400 1rem 'Bebas Neue', sans-serif;
+}

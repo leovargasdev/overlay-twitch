@@ -1,0 +1,79 @@
+body {
+  background: #7F5AF0;
+}
+
+main {
+  display: flex;
+  column-gap: 80px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+strong {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  padding-bottom: 1px;
+  text-shadow: 1px 1px 2px #1A1A2E;
+}
+
+svg {
+  width: 36px;
+  height: auto;
+
+  animation: resize 5s ease infinite alternate;
+}
+
+svg path {
+  fill: transparent;
+  animation: dash 5s ease infinite alternate;
+}
+
+.youtube svg {
+  width: 40px;
+}
+
+.youtube svg, .youtube svg path {
+  animation-delay: 1s;
+}
+.twitter svg, .twitter svg path {
+  animation-delay: 2s;
+}
+.github svg, .github svg path {
+  animation-delay: 3s;
+}
+
+@keyframes dash {
+  0%, 20% {
+    fill: transparent;
+    stroke-width: 0.1;
+    stroke-dasharray: 0 100;
+  }
+  50% {
+    stroke-width: 1;
+    stroke: #fffffe;
+  }
+  80%, 100% {
+    fill: #1a0068;
+    stroke-dasharray: 100 1;
+  }
+  100% {
+    stroke: #1a0068;
+    stroke-width: 0.2;
+  }
+}
+
+@keyframes resize {
+  0% {
+    transform: translateY(10px) rotate(600deg) scale(0.2);
+  }
+  50%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}

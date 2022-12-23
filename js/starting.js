@@ -1,3 +1,41 @@
+const TIME_ANIMATION = 2000
+
+const getParams = (id) => {
+  const delay = TIME_ANIMATION * id
+  const endDelay = 10000 - delay
+  const translate = (250 + (200 * id)) * -1
+
+  const value = {
+    targets: `#text-${id} span`,
+    duration: TIME_ANIMATION,
+    easing: 'easeOutElastic',
+    opacity: [0, 1],
+    delay: (t, i) => (i * 40) + delay,
+    endDelay,
+    loop: true
+  }
+
+  if(id % 2 === 0) {
+    value['translateX'] = [translate, 0]
+  } else {
+    value['translateY'] = [translate, 0]
+  }
+
+  return value
+}
+
+function startAnimation() {
+  [0, 1, 2, 3, 4].map(idElement => {
+    anime(getParams(idElement))
+  })
+}
+
+startAnimation()
+
+
+
+// * * * LEGACY * * *
+
 const defaultParams2 = {
   duration: 2000,
   easing: 'easeOutElastic',
@@ -51,29 +89,4 @@ function startingAnimation2() {
     translateY: [-1050, 0],
   })
 }
-
-const getParams = (id) => {
-  const delay = 2000 * id
-  const endDelay = 10000 - delay
-  const translateY = (250 + (200 * id)) * -1
-
-  return {
-    targets: `#text-${id} span`,
-    duration: 2000,
-    easing: 'easeOutElastic',
-    opacity: [0, 1],
-    delay: (t, i) => (i * 40) + delay,
-    translateY: [translateY, 0],
-    endDelay,
-    loop: true
-  }
-}
-
-function startingAnimation() {
-  [0, 1, 2, 3, 4].map(idElement => {
-    anime(getParams(idElement))
-  })
-}
-
-startingAnimation()
 
