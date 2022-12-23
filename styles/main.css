@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fffffe;
+  background: #1A1A2E;
+  font-family: 'Bebas Neue', cursive;
+}
+
+main {
+  padding: 40px 40px 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 18px;
+
+  width: 100%;
+  font-size: 200px;
+  line-height: 0.9;
+
+  color: transparent;
+  -webkit-text-stroke: 3px #7f5af03f;
+}
+
+h1 span {
+  display: block;
+  white-space: pre;
+}
