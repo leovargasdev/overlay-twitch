@@ -1,5 +1,3 @@
-// const tmi = require('tmi.js');
-
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
@@ -13,34 +11,32 @@ client.connect().catch(console.error);
 
 const chat = document.getElementById('chat')
 
-// propriedades do obj tags
-// {
-// 	subscriber: flag do sub
-// 	username: nome do usuário
-// 	color: cor do nome
-// 	first-msg: flag para saber se é a primeira mensagem
-// }
+function setUsernameInParagraph(tags, paragraph) {
+	const username = document.createElement('span')
 
-client.on('message', (channel, tags, message, self) => {
-  const paragraph = document.createElement('p')
-	paragraph.setAttribute('id', tags.id)
+	username.innerHTML = tags.username + ':'
+	username.style.color = tags.color || '#7F5AF0'
 
+	paragraph.append(username)
+}
+
+function setMessageInParagraph(message, paragraph) {
 	const chars = message.split('')
-
-	const strong = document.createElement('span')
-	strong.innerHTML = tags.username + ':'
-	console.log(tags.color)
-	const isColorMarnellyy = tags.color === '#EFFF00'
-	const color = isColorMarnellyy ? '#768' : tags.color
-	strong.style.color = color || '#333'
-
-	paragraph.appendChild(strong)
 
 	chars.forEach(char => {
 		const span = document.createElement('span')
 		span.innerHTML = char
 		paragraph.append(span)
 	});
+}
+
+client.on('message', (channel, tags, message, self) => {
+  const paragraph = document.createElement('p')
+	paragraph.setAttribute('id', tags.id)
+
+	setUsernameInParagraph(tags, paragraph)
+
+	setMessageInParagraph(message, paragraph)
 
   chat.append(paragraph)
 
