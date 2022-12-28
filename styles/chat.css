@@ -1,5 +1,5 @@
 body {
-  background: transparent;
+  background: #999;
 }
 
 #chat {
@@ -19,6 +19,7 @@ p {
 
   display: flex;
   flex-wrap: wrap;
+  
   font-size: 1.5rem;
   color: var(--primary);
   font-family: "Open Sans";
@@ -33,6 +34,13 @@ p {
 p span:first-child {
   font-weight: 600;
   margin-right: 6px;
+}
+
+p img {
+  width: 24px;
+  height: auto;
+  align-self: center;
+  margin: 0 4px;
 }
 
 p span {
