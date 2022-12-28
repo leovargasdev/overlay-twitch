@@ -2,7 +2,7 @@ const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
 		username: 'leo__bot',
-		password: 'oauth:vdupbuqjacazzbz3zcfehkta5y68kb'
+		password: 'oauth:peucva7k1rutafchxw3xbzd0p88gpo'
 	},
 	channels: ['leovargasdev']
 });
